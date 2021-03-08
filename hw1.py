@@ -1,42 +1,27 @@
 # Part. 1
 #=======================================
-
 # Import module
-
 #  csv -- fileIO operation
-
 import csv
-
 #=======================================
-
 
 # Part. 2
-
 #=======================================
-
 # Read cwb weather data
-
 cwb_filename = '107061201.csv'
-
 data = []
-
 header = []
 
 with open(cwb_filename) as csvfile:
-
    mycsv = csv.DictReader(csvfile)
-
    header = mycsv.fieldnames
 
    for row in mycsv:
       data.append(row)    # put row into data
-   
 #=======================================
 
 # Part. 3
-
 #=======================================
-
 # Analyze data depend on your group and store it to target_data like:
 
 # Retrive all data points which station id is "C0X260" as a list.
@@ -46,7 +31,6 @@ target_data = list(filter(lambda item: (item['station_id'] == 'C0A880' or item['
 # Retrive ten data points from the beginning.
 
 # target_data = data[:10]
-
 
 #=======================================
 # Part. 4
@@ -92,6 +76,7 @@ for i in range(len(target_data)):
       else :
          if float(target_data[i]['TEMP']) > TEMP_C0X260:
             TEMP_C0X260 = float(target_data[i]['TEMP'])
+            
 if TEMP_C0A880 == 0 :
    val_C0A880 = str(None)
 else :
